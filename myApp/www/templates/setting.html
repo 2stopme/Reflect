@@ -24,33 +24,11 @@
         </div>
         <ul class="list">
 
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-            Sport
-          </li>
-
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-            Nouvelle technologies
-          </li>
-
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-            Culture & Loisirs
-          </li>
-
-          <li class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox">
-            </label>
-            Actualités
-          </li>
+          <ion-toggle ng-repeat="item in prefList"
+                      ng-model="item.checked"
+                      ng-checked="item.checked" ng-change="change(item)">
+            {{ item.text }}
+          </ion-toggle>
 
         </ul>
       </div>

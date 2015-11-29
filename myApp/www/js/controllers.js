@@ -1,59 +1,109 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+    .controller('settingCtrl', function($scope, myService) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+      $scope.prefList = [
+        { id : 1, text: "Sport", checked: true },
+        { id : 2, text: "Nouvelle technologies", checked: false },
+        { id : 3, text: "Culture & Loisirs", checked: false }, //TODO : list des taches
+        { id : 4, text: "Actualités", checked: false }, //TODO : Facebook Feed
+      ];
 
-  // Form data for the login modal
-  $scope.loginData = {};
+      $scope.change = function (data) {
+        console.log(data.id, data.checked);
+        var myVal;
+        if(data.checked == true)
+          myVal = 1;
+        else
+          myVal = 0;
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+        switch(data.id) {
+          case 1:
+            myService.setWeather(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+          case 2:
+            myService.setTweetFeed(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+          case 3:
+            /* myService.setTweetFeed(myVal).then(function(resp) {
+             console.log(resp)
+             });
+             */
+            console.log('toDo');
+            break;
+          case 4:
+            myService.setTodoList(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+        }
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+      }
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-})
+    })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
 
-.controller('settingCtrl', function($scope) {
-});
+    .controller('confCtrl', function($scope, myService) {
+
+      $scope.change = function (data) {
+        console.log(data.id, data.checked);
+        var myVal;
+        if(data.checked == true)
+          myVal = 1;
+        else
+          myVal = 0;
+
+
+        switch(data.id) {
+          case 1:
+            myService.setWeather(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+          case 2:
+            myService.setTweetFeed(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+          case 3:
+            /* myService.setTweetFeed(myVal).then(function(resp) {
+             console.log(resp)
+             });
+             */
+            console.log('toDo');
+            break;
+          case 4:
+            myService.setTodoList(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+          case 5:
+            myService.setFacebookFeed(myVal).then(function(resp) {
+              console.log(resp)
+            });
+            break;
+          case 6:
+
+            break;
+        }
+
+      }
+
+      $scope.settingsList = [
+        { id : 1, text: "Metéo", checked: true },
+        { id : 2, text: "Twitter Feed", checked: false },
+        /* { id : 3, text: "Horaire de transport", checked: false },*/
+        { id : 4, text: "ToDo list", checked: false }, //TODO : list des taches
+        { id : 5, text: "Facebook Feed", checked: false }, //TODO : Facebook Feed
+      ];
+
+
+    });
+
