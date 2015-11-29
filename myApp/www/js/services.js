@@ -44,6 +44,14 @@ angular.module('starter.services', [])
                 return promise;
             },
 
+            setClock: function(myBoolsetClock) {
+                var promise = $http.get(baseURL + '/setClock/' + myBoolsetClock).then(function (response) {
+                    console.log(response);
+                    return response.data;
+                });
+                return promise;
+            },
+
             setSportFeed: function(myBoolsetSportFeed) {
                 var promise = $http.get(baseURL + '/setSportFeed/' + myBoolsetSportFeed).then(function (response) {
                     console.log(response);

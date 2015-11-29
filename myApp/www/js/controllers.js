@@ -20,24 +20,22 @@ angular.module('starter.controllers', [])
 
         switch(data.id) {
           case 1:
-            myService.setWeather(myVal).then(function(resp) {
+            myService.setSportFeed(myVal).then(function(resp) {
               console.log(resp)
             });
             break;
           case 2:
-            myService.setTweetFeed(myVal).then(function(resp) {
+            myService.setTechNewsFeed(myVal).then(function(resp) {
               console.log(resp)
             });
             break;
           case 3:
-            /* myService.setTweetFeed(myVal).then(function(resp) {
-             console.log(resp)
-             });
-             */
-            console.log('toDo');
+            myService.setEntertainmentFeed(myVal).then(function(resp) {
+              console.log(resp)
+            });
             break;
           case 4:
-            myService.setTodoList(myVal).then(function(resp) {
+            myService.setWhatsNewFeed(myVal).then(function(resp) {
               console.log(resp)
             });
             break;
@@ -90,7 +88,9 @@ angular.module('starter.controllers', [])
             });
             break;
           case 6:
-
+            myService.setClock(myVal).then(function(resp) {
+              console.log(resp)
+            });
             break;
         }
 
@@ -102,6 +102,7 @@ angular.module('starter.controllers', [])
         /* { id : 3, text: "Horaire de transport", checked: false },*/
         { id : 4, text: "ToDo list", checked: false }, //TODO : list des taches
         { id : 5, text: "Facebook Feed", checked: false }, //TODO : Facebook Feed
+        { id : 6, text: "Horloge", checked: true },
       ];
 
 
