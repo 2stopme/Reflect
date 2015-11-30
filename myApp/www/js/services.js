@@ -82,7 +82,15 @@ angular.module('starter.services', [])
                     return response.data;
                 });
                 return promise;
-            }
+            },
+
+            setTrainTime: function(myBoolTrainTime) {
+                var promise = $http.get(baseURL + '/setTrainTime/' + myBoolTrainTime).then(function (response) {
+                    console.log(response);
+                    return response.data;
+                });
+                return promise;
+            },
 
         };
         return myService;

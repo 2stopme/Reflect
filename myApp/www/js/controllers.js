@@ -71,14 +71,12 @@ angular.module('starter.controllers', [])
             });
             break;
           case 3:
-            /* myService.setTweetFeed(myVal).then(function(resp) {
+             myService.setTrainTime(myVal).then(function(resp) {
              console.log(resp)
              });
-             */
-            console.log('toDo');
             break;
           case 4:
-            myService.setTodoList(myVal).then(function(resp) {
+            myService.setWhatsNewFeed(myVal).then(function(resp) {
               console.log(resp)
             });
             break;
@@ -99,8 +97,8 @@ angular.module('starter.controllers', [])
       $scope.settingsList = [
         { id : 1, text: "Metéo", checked: true },
         { id : 2, text: "Twitter Feed", checked: false },
-        /* { id : 3, text: "Horaire de transport", checked: false },*/
-        { id : 4, text: "ToDo list", checked: false }, //TODO : list des taches
+        { id : 3, text: "Horaire de transport", checked: false },
+        { id : 4, text: "Actualité", checked: false }, //TODO : list des taches
         { id : 5, text: "Facebook Feed", checked: false }, //TODO : Facebook Feed
         { id : 6, text: "Horloge", checked: true },
       ];
